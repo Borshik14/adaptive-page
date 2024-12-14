@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя первая страница</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            background: #fff;
+            padding: 15px;
+            list-style-type: square;
+            border: 1px solid #ccc;
+        }
+       table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: #fff;
+       }
+       table th, table td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+       }
+       table th{
+        background-color: #007BFF;
+        color: white;
+       }
+       table tr:nth-child(even){
+        background-color: #f9f9f9;
+       }
+       table tr:nth-child(odd){
+        background-color: #fff;
+       }
+       form{
+        margin: 20px 0;
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+       label{
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+       }
+       input, textarea, button {
+        display: block;
+        width: 100%;
+        margin: 10px 0 20px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+       }
+       input:focus, textarea:focus{
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+       }
+       button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+       }
+       button:hover {
+        background-color: #0056b3;
+       }
+       /* === Медиа-запросы для адаптивности === */
+       @media (max-width: 768px) {
+        body {
+            margin: 10px;
+        }
+        table th, table td {
+            padding: 5px;
+            font-size: 14px;
+        }
+        form {
+            padding: 15px;
+        }
+        input, textarea, button{
+            font-size: 14px;
+            padding: 8px;
+        }
+       }
+       @media (max-width: 480px) {
+        h1,h2 {
+            font-size: 18px;
+        }
+        table, form {
+            font-size: 12px;
+        }
+        button {
+            font-size: 14px;
+            padding: 8px;
+        }
+       }
+    </style>
+</head>
+<body>
+    <h1>Привет, мир!</h1>
+    <p>Это мой первый веб-сайт. Я учусь программировать и изучаю HTML и CSS.</p>
+
+    <h2>Таблица тренировок</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>День недели</th>
+                <th>Упражнение</th>
+                <th>Длительность</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Понедельник</td>
+                <td>Бег</td>
+                <td>30 минут</td>
+            </tr>
+            <tr>
+                <td>Вторник</td>
+                <td>Велосипед</td>
+                <td>45 минут</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Форма обратной связи</h2>
+    <form>
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" placeholder="Введите ваше имя">
+
+        <label for="email">Ваш email:</label>
+        <input type="email" id="email" placeholder="Введите ваш email">
+
+        <label for="message">Сообщение:</label>
+        <textarea id="message" rows="4" placeholder="Введите сообщение"></textarea>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

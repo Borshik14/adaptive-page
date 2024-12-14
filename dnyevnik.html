@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дневник тренировок</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            background: #fff;
+            padding: 15px;
+            list-style-type: none;
+            border: 1px solid #ccc;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Дневник тренировок</h1>
+
+    <form id="trainingForm">
+        <input type="text" id="trainingInput" placeholder="Введите тренировку" required>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <h2>Мои тренировки:</h2>
+    <ul id="trainingList"></ul>
+
+    <script>
+        const trainingForm = document.getElementById('trainingForm');
+        const trainingInput = document.getElementById('trainingInput');
+        const trainingList = document.getElementById('trainingList');
+
+        // Загрузка тренировок из localStorage
+        let trainings = JSON.parse(localStorage.getItem('trainings')) || [];
+
+        function renderTrainings() {
+            trainingList.innerHTML = '';
+            trainings.forEach((training, index) => {
+                const li = document.createElement('li');
+                li.textContent = training;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Удалить';
+                deleteButton.style.marginLeft = '10px';
+                deleteButton.onclick = () => {
+                    trainings.splice(index, 1);
+                    saveAndRender();
+                };
+                li.appendChild(deleteButton);
+                trainingList.appendChild(li);
+            });
+        }
+
+        function saveAndRender() {
+            localStorage.setItem('trainings', JSON.stringify(trainings));
+            renderTrainings();
+        }
+
+        trainingForm.onsubmit = (e) => {
+            e.preventDefault();
+            const newTraining = trainingInput.value.trim();
+            if (newTraining) {
+                trainings.push(newTraining);
+                trainingInput.value = '';
+                saveAndRender();
+            }
+        };
+
+        renderTrainings();
+    </script>
+</body>
+</html>
