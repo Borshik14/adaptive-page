@@ -117,6 +117,12 @@
     <p>Это мой первый веб-сайт. Я учусь программировать и изучаю HTML и CSS.</p>
 
     <h2>Таблица тренировок</h2>
+    <form id="workout-form">
+        <input type="text" id="day" placeholder=День недели" required>
+        <input type="text" id="exercise" placeholder="Упражнение" required>
+        <input type="text" id="duration" placeholder="Длительность" required>
+        <button type="submit">Добавить</button>
+    </form>
     <table>
         <thead>
             <tr>
@@ -152,5 +158,25 @@
 
         <button type="submit">Отправить</button>
     </form>
+    <script>
+        document.getElementById("workout-form").addEventListener("submit", function(event){event.preventDefault();
+    //Получаем данные из формы
+    const day = document.getElementById("day").value;
+    const exercise = document.getElementById("exercise").value;
+    const duration = document.getElementById("duration").value;
+    
+    //создаём новую строку таблицы
+    const table = document.querySelector("table");
+    const newRow = table.insertRow();
+
+    newRow.innerHTML = `
+        <td>${day}</td>
+        <td>${exercise}</td>
+        <td>${duration}</td>
+    `;
+        //очищаем форму
+    document.getElementById("workout-form").reset()
+});
+    </script>
 </body>
 </html>
